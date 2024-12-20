@@ -8,14 +8,20 @@
     </head>
     <body>
         
-        <form action="/cadastrar-produto-no-json">
+        <form id="formCadProdutos" action="#">
             <h2>Preencha os Dados do Produto:</h2>
-            <input type="text" placeholder="Nome do Produto">
-            <input type="number" placeholder="Quantidade do Produto">
-            <input type="date" placeholder="Data de Validade do Produto">
+            <input type="text" id="nome" placeholder="Nome do Produto">
+            <input type="number" id="qtd" placeholder="Quantidade do Produto">
+            <input type="date" id="dataValidade" placeholder="Data de Validade do Produto">
             <input type="submit" value="Confirmar">
         </form>
         
         <!-- <script src="" async defer></script> -->
+        <script>
+            let formulario = document.getElementById(`formCadProdutos`);
+            formulario.addEventListener(`submit`, function enviarDadosParaSeremGuardados (event) {
+                console.log(event);
+            })
+        </script>
     </body>
 </html>
