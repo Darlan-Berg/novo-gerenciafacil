@@ -13,7 +13,7 @@ def cadastro_compras():
 @app.route("/adicionar-produto-no-json", methods=["POST"])
 def adicionar_produto_no_json():
     # caminho do arquivo: /home/aluno/Documentos/novo-gerenciafacil/produtos_cadastrados.json
-    ...
+    pass
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
