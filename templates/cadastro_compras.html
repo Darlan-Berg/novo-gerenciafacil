@@ -8,45 +8,14 @@
     </head>
     <body>
         
-        <form id="formCadProdutos" method="POST" action="#">
+        <form id="formCadProdutos" method="POST" action="/adicionar-produto-no-json">
             <h2>Preencha os Dados do Produto:</h2>
-            <input type="text" id="nome" placeholder="Nome do Produto">
-            <input type="number" id="qtd" placeholder="Quantidade do Produto">
-            <input type="date" id="dataValidade" placeholder="Data de Validade do Produto">
+            <input required type="text" id="nome" name="nome" placeholder="Nome do Produto">
+            <input required type="number" id="qtd" name="qtd" placeholder="Quantidade do Produto">
+            <input required type="date" id="dataValidade" name="dataValidade" placeholder="Data de Validade do Produto">
             <input type="submit" value="Confirmar">
         </form>
         
         <!-- <script src="" async defer></script> -->
-        <script>
-            let formulario = document.getElementById("formCadProdutos");
-            formulario.addEventListener("submit", function enviarDadosParaSeremGuardados (event) {
-
-                // evitar que o form html envie os dados
-                event.preventDefault()
-
-                // coletar dados do form e criar um objeto
-                const novoProduto = {
-                    "nome": document.getElementById("nome"),
-                    "qtd": document.getElementById("qtd"),
-                    "dataValidade": document.getElementById("dataValidade")
-                };
-
-                // transformar dados em JSON e enviar para o servidor flask
-                const stringJson = JSON.stringify(novoProduto);
-
-                //fetch("/adicionar-produto-no-json", {
-                //    method: "POST",
-                //    headers: { "Content-Type": "application/json" },
-                //    body: stringJson
-                //})
-                //.then(response => response.json());
-                //.then(data => {
-                //console.log("Resposta do servidor:", data);
-                //})
-                //.catch(error => {
-                //console.error('Erro:', error);
-                //});
-            });
-        </script>
     </body>
 </html>

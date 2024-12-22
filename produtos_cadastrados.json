@@ -1,1 +1,24 @@
-{}
+{
+    "listaProdutos": [
+        {
+            "nome": "Italakinho",
+            "qtd": "15",
+            "dataValidade": "2024-12-31"
+        },
+        {
+            "nome": "Fuba",
+            "qtd": "10",
+            "dataValidade": "2024-12-22"
+        },
+        {
+            "nome": "Biscoito",
+            "qtd": "40",
+            "dataValidade": "2024-12-31"
+        },
+        {
+            "nome": "Creatina",
+            "qtd": "1",
+            "dataValidade": "2024-12-26"
+        }
+    ]
+}
