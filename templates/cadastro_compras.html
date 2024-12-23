@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Página de Cadastro de Compras</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        
-        <form id="formCadProdutos" method="POST" action="/adicionar-produto-no-json">
-            <h2>Preencha os Dados do Produto:</h2>
-            <input required type="text" id="nome" name="nome" placeholder="Nome do Produto">
-            <input required type="number" id="qtd" name="qtd" placeholder="Quantidade do Produto">
-            <input required type="date" id="dataValidade" name="dataValidade" placeholder="Data de Validade do Produto">
-            <input type="submit" value="Confirmar">
-        </form>
-        
-        <!-- <script src="" async defer></script> -->
-    </body>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>Página de Cadastro de Compras</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    
+    <form method="POST" action="/adicionar-produto-no-json">
+        <h2>Preencha os Dados do Produto:</h2>
+        <input required type="text" id="nome" name="nome" placeholder="Nome do Produto">
+        <input required type="number" id="qtd" name="qtd" placeholder="Quantidade do Produto">
+        <input required type="date" id="dataValidade" name="dataValidade" placeholder="Data de Validade do Produto">
+        <input type="submit" value="Confirmar">
+    </form>
+    
+    <!-- <script src="" async defer></script> -->
+</body>
 </html>

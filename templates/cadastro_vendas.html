@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Página de Cadastro de Vendas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <form id="formVendaProdutos" method="POST" action="#">
+        <h2>Preencha os Dados do Produto:</h2>
+        <input autofocus required type="text" id="nome" name="nome" placeholder="Nome do Produto">
+        <input required type="number" id="qtd" name="qtd" placeholder="Quantidade do Produto">
+        <input required type="number" id="precoUni" name="precoUni" placeholder="Preço Unitário">
+        <input type="submit" value="Confirmar">
+    </form>
+
+    <script>
+
+        function mostrarStatusVenda() {
+            window.alert("Compra realizada com sucesso!")
+        }
+
+        const form = document.getElementById("formVendaProdutos")
+        form.addEventListener("submit", (event) => {
+            event.preventDefault() // se essa linha for apagada havera um erro
+
+            // coletar dados do form
+            const nome = document.getElementById("nome").value
+            const qtd = document.getElementById("qtd").value
+            const precoUni = document.getElementById("precoUni").value
+
+            // fazer requisicao para o servidor e buscar o arquivo produtos_cadastrados.json
+            fetch("/retornar-estoque") // o fetch retorna um objeto Response do javascript
+            .then((objDeResponse) => {
+                return objDeResponse.json() // retorna o objeto javascript/json que esta no corpo da requisicao
+            })
+            .then((objJavaScript) => {
+                estoque = objJavaScript.listaProdutos
+
+                // verificar se o produto esta em estoque
+                for (i = 0; i < estoque.length; i++) {
+                    const produto = estoque[i]
+                    if (produto.nome === nome) {
+                        // verificar quantidade a ser vendida
+                        if (qtd <= produto.qtd) {
+                            // fazer requisicao para o servidor e atualizar estoque
+                            produto.qtd -= qtd
+
+                            fetch("/remover-produto-no-json", {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json"
+                                },
+                                body: JSON.stringify(objJavaScript)
+                            })
+                            mostrarStatusVenda()
+                        }
+                    }
+                }
+
+            })
+            .catch((erro) => {
+                console.log("Algo deu errado ao fazer a requisição do estoque. Descrição do erro: " + erro)
+            })
+        });
+    </script>
+
+    <!-- <script>
+        let formulario = document.getElementById("formCadProdutos");
+        formulario.addEventListener("submit", function enviarDadosParaSeremGuardados (event) {
+
+            // evitar que o form html envie os dados
+            event.preventDefault()
+
+            // coletar dados do form e criar um objeto
+            const novoProduto = {
+                "nome": document.getElementById("nome"),
+                "qtd": document.getElementById("qtd"),
+                "dataValidade": document.getElementById("dataValidade")
+            };
+
+            // transformar dados em JSON e enviar para o servidor flask
+            const stringJson = JSON.stringify(novoProduto);
+
+            //fetch("/adicionar-produto-no-json", {
+            //    method: "POST",
+            //    headers: { "Content-Type": "application/json" },
+            //    body: stringJson
+            //})
+            //.then(response => response.json());
+            //.then(data => {
+            //console.log("Resposta do servidor:", data);
+            //})
+            //.catch(error => {
+            //console.error('Erro:', error);
+            //});
+        });
+    </script> -->
+</body>
+</html>
