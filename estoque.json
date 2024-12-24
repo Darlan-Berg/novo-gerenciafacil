@@ -1,0 +1,31 @@
+{
+    "listaProdutos": [
+        {
+            "dataValidade": "2025-01-01",
+            "id": "5EEBGb",
+            "marca": "Italac",
+            "nome": "Leite",
+            "precoUni": "5",
+            "qtd": 2,
+            "valorUni": "3"
+        },
+        {
+            "dataValidade": "2024-12-25",
+            "id": "limpZn",
+            "marca": "S\u00e3o Braz",
+            "nome": "Fuba",
+            "precoUni": "2",
+            "qtd": 30,
+            "valorUni": "1"
+        },
+        {
+            "dataValidade": "2024-12-10",
+            "id": "DOgWpl",
+            "marca": "Cacau Show",
+            "nome": "Chocolate",
+            "precoUni": "40",
+            "qtd": 10,
+            "valorUni": "25"
+        }
+    ]
+}

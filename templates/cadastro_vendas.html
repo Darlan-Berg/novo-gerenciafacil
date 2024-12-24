@@ -4,20 +4,22 @@
     <meta charset="UTF-8">
     <title>Página de Cadastro de Vendas</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="{{ url_for('static', filename='js/cadastro_vendas.js') }}" defer></script>
 </head>
 <body>
     <form id="formVendaProdutos" method="POST" action="#">
         <h2>Preencha os Dados do Produto:</h2>
-        <input autofocus required type="text" id="nome" name="nome" placeholder="Nome do Produto">
-        <input required type="number" id="qtd" name="qtd" placeholder="Quantidade do Produto">
-        <input required type="number" id="precoUni" name="precoUni" placeholder="Preço Unitário">
+        <input autofocus required type="text" id="nome" name="nome" placeholder="Nome">
+        <input required type="text" id="marca" name="marca" placeholder="Marca">
+        <input required type="number" id="qtd" name="qtd" placeholder="Quantidade">
+        <input type="date" id="dataVenda" name="dataVenda">
         <input type="submit" value="Confirmar">
     </form>
 
-    <script>
+    <!-- <script>
 
-        function mostrarStatusVenda() {
-            window.alert("Compra realizada com sucesso!")
+        function mostrarStatusDaOperacao(mensagem) {
+            window.alert(mensagem)
         }
 
         const form = document.getElementById("formVendaProdutos")
@@ -29,7 +31,7 @@
             const qtd = document.getElementById("qtd").value
             const precoUni = document.getElementById("precoUni").value
 
-            // fazer requisicao para o servidor e buscar o arquivo produtos_cadastrados.json
+            // fazer requisicao para o servidor e buscar o arquivo estoque.json
             fetch("/retornar-estoque") // o fetch retorna um objeto Response do javascript
             .then((objDeResponse) => {
                 return objDeResponse.json() // retorna o objeto javascript/json que esta no corpo da requisicao
@@ -53,7 +55,7 @@
                                 },
                                 body: JSON.stringify(objJavaScript)
                             })
-                            mostrarStatusVenda()
+                            mostrarStatusDaOperacao("Compra realizada com sucesso.")
                         }
                     }
                 }
@@ -62,38 +64,6 @@
             .catch((erro) => {
                 console.log("Algo deu errado ao fazer a requisição do estoque. Descrição do erro: " + erro)
             })
-        });
-    </script>
-
-    <!-- <script>
-        let formulario = document.getElementById("formCadProdutos");
-        formulario.addEventListener("submit", function enviarDadosParaSeremGuardados (event) {
-
-            // evitar que o form html envie os dados
-            event.preventDefault()
-
-            // coletar dados do form e criar um objeto
-            const novoProduto = {
-                "nome": document.getElementById("nome"),
-                "qtd": document.getElementById("qtd"),
-                "dataValidade": document.getElementById("dataValidade")
-            };
-
-            // transformar dados em JSON e enviar para o servidor flask
-            const stringJson = JSON.stringify(novoProduto);
-
-            //fetch("/adicionar-produto-no-json", {
-            //    method: "POST",
-            //    headers: { "Content-Type": "application/json" },
-            //    body: stringJson
-            //})
-            //.then(response => response.json());
-            //.then(data => {
-            //console.log("Resposta do servidor:", data);
-            //})
-            //.catch(error => {
-            //console.error('Erro:', error);
-            //});
         });
     </script> -->
 </body>

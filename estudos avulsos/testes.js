@@ -1,27 +1,7 @@
-objs = {
-    "lista": [
-        {
-            "a": 1,
-            "b": 2,
-            "c": 3,
-            "atributo": null
-        },
-        {
-            "d": 4,
-            "e": 5,
-            "f": 6,
-            "atributo": null
-        }
-    ]
+const num1 = 1
+const num2 = 2
+const num3 = 3
+
+if (num1 < num2 && num2 < num3) {
+    console.log("Alguma coisa.")
 }
-
-console.log(objs)
-lista = objs.lista
-console.log(lista)
-
-for (i=0; i<lista.length; i++) {
-    lista[i].atributo = "Olá"
-}
-
-console.log(objs)
-console.log(lista)

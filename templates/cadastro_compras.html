@@ -9,9 +9,12 @@
     
     <form method="POST" action="/adicionar-produto-no-json">
         <h2>Preencha os Dados do Produto:</h2>
-        <input required type="text" id="nome" name="nome" placeholder="Nome do Produto">
-        <input required type="number" id="qtd" name="qtd" placeholder="Quantidade do Produto">
-        <input required type="date" id="dataValidade" name="dataValidade" placeholder="Data de Validade do Produto">
+        <input autofocus required type="text" id="nome" name="nome" placeholder="Nome">
+        <input required type="text" id="marca" name="marca" placeholder="Marca">
+        <input required type="number" id="qtd" name="qtd" placeholder="Quantidade">
+        <input required type="number" id="valorUni" name="valorUni" placeholder="Valor Unitário de Compra">
+        <input required type="number" id="precoUni" name="precoUni" placeholder="Preço Unitário para Venda">
+        <input required type="date" id="dataValidade" name="dataValidade">
         <input type="submit" value="Confirmar">
     </form>
     
